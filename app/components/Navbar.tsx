@@ -1,18 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 import { FiMenu, FiX, FiArrowRight, FiChevronDown, FiMapPin, FiStar, FiShare2, FiCalendar, FiTrendingUp, FiRadio, FiMic, FiPhone } from "react-icons/fi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [hidePreNav, setHidePreNav] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scrolling down & past 50px - hide pre-navbar
+        setHidePreNav(true);
+      } else {
+        // Scrolling up - show pre-navbar
+        setHidePreNav(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "Packages", href: "/packages" },
     { name: "Blog", href: "/blog" },
   ];
 
@@ -69,14 +90,43 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="glass-navbar fixed w-full top-0 z-50 animate-fade-in-up border-b border-white/20 bg-gradient-to-r from-white/95 via-white/90 to-white/95 backdrop-blur-xl shadow-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16 md:h-20">
+    <>
+      {/* Pre-Navbar Banner */}
+      <div className={`fixed w-full top-0 z-[60] bg-gradient-to-r from-[#1e1b4b] via-[#312e81] to-[#1e1b4b] text-white transition-transform duration-300 ease-in-out ${hidePreNav ? '-translate-y-full' : 'translate-y-0'}`}>
+        <div className="container mx-auto px-4 py-2.5 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
+          <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+            <span className="bg-red-500 text-white font-bold px-2.5 py-1 rounded-md text-[10px] sm:text-xs uppercase tracking-wider shadow-lg animate-pulse">
+              Problem
+            </span>
+            <span className="font-medium text-white/90">
+              Is your shop invisible on Google Maps? You are losing cash daily.
+            </span>
+          </div>
+          <a 
+            href="tel:+919117666123" 
+            className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400 px-4 py-1.5 rounded-full transition-all duration-300 text-xs sm:text-sm font-bold whitespace-nowrap group shadow-lg hover:shadow-green-500/30 hover:scale-105"
+          >
+            <FiPhone className="group-hover:animate-bounce" size={14} />
+            <span>Call for Instant Fix: +91 9117666123</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <nav className={`glass-navbar fixed w-full z-50 animate-fade-in-up border-b border-gray-200/50 bg-white/95 backdrop-blur-xl shadow-lg transition-all duration-300 ease-in-out ${hidePreNav ? 'top-0' : 'top-[52px] sm:top-[44px]'}`}>
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center h-16 md:h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group relative z-10">
             <div className="relative">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#4f46e5] to-[#06b6d4] rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-indigo-500/30 group-hover:shadow-2xl group-hover:shadow-indigo-500/50">
-                <span className="text-white font-bold text-xl md:text-2xl">M</span>
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 overflow-hidden">
+                <Image
+                  src="/mfplogo.png"
+                  alt="Mediaflip Logo"
+                  width={56}
+                  height={56}
+                  className="object-contain"
+                />
               </div>
               {/* Glow effect on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#4f46e5] to-[#06b6d4] rounded-xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
@@ -173,8 +223,12 @@ const Navbar = () => {
             </div>
           </div>
         )}
-      </div>
-    </nav>
+        </div>
+      </nav>
+
+      {/* Spacer to prevent content from going under fixed navbar */}
+      <div className="h-[116px] sm:h-[108px] md:h-[116px]"></div>
+    </>
   );
 };
 

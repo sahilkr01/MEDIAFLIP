@@ -118,8 +118,8 @@ const Footer = () => {
                 <div className="w-8 h-8 bg-gray-800/50 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#06b6d4]/20 transition-colors">
                   <FiPhone className="text-[#06b6d4]" size={16} />
                 </div>
-                <a href="tel:+1234567890" className="text-gray-400 hover:text-[#06b6d4] transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:+919117666123" className="text-gray-400 hover:text-[#06b6d4] transition-colors">
+                  +91 9117666123
                 </a>
               </li>
               <li className="flex items-center gap-3 group">
@@ -165,8 +165,8 @@ const Footer = () => {
               <Link href="#" className="text-gray-400 hover:text-[#06b6d4] transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-[#06b6d4] transition-colors">
-                Terms of Service
+              <Link href="/terms" className="text-gray-400 hover:text-[#06b6d4] transition-colors">
+                Terms & Conditions
               </Link>
             </div>
           </div>

@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Mediaflip - Digital Marketing & Brand Management Agency",
   description: "Mediaflip is your trusted partner for GMB management, reputation management, social media marketing, event management, digital marketing, local advertising, and PR management.",
   keywords: "digital marketing, GMB management, reputation management, social media management, event management, PR management, local advertising",
+  icons: {
+    icon: "/mfplogo.png",
+    shortcut: "/mfplogo.png",
+    apple: "/mfplogo.png",
+  },
 };
 
 export default function RootLayout({

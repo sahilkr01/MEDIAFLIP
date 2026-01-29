@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiArrowRight, FiPlay } from "react-icons/fi";
 import { CirclePattern, FloatingShapes, RocketIcon, ChartIcon, StarIcon } from "./SVGDecorations";
-import CountUp from "./CountUp";
 
 const Hero = () => {
   return (
@@ -22,11 +21,17 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 md:space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full animate-fade-in-up">
-              <RocketIcon className="w-5 h-5" />
-              <span className="text-[#4f46e5] font-medium text-sm">#1 Digital Marketing Agency</span>
+            {/* Small Title Badge */}
+            <div className="inline-flex items-center gap-2 animate-fade-in-up">
+              <div className="relative">
+                <span className="relative z-10 bg-gradient-to-r from-[#4f46e5] to-[#06b6d4] text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-lg">
+                  ✨ Accepting New Retail Partners for Q4
+                </span>
+                {/* Curved background decoration */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#4f46e5]/20 to-[#06b6d4]/20 rounded-full blur-md"></div>
+              </div>
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up delay-100">
               Transform Your{" "}
               <span className="gradient-text-animated">Digital Presence</span>{" "}
@@ -39,36 +44,14 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300">
-              <Link href="/packages" className="btn-modern flex items-center justify-center gap-2 group">
-                View Our Packages
+              <Link href="/contact" className="flex items-center justify-center gap-2 group bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105">
+                Get Free Audit
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link href="/about" className="btn-secondary flex items-center justify-center gap-2 hover-lift">
                 <FiPlay />
                 Learn More
               </Link>
-            </div>
-            
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-gray-200 animate-fade-in-up delay-400">
-              <div className="hover-scale cursor-default">
-                <h3 className="text-2xl md:text-3xl font-bold gradient-text">
-                  <CountUp end={500} suffix="+" />
-                </h3>
-                <p className="text-gray-500 text-sm">Happy Clients</p>
-              </div>
-              <div className="hover-scale cursor-default">
-                <h3 className="text-2xl md:text-3xl font-bold gradient-text">
-                  <CountUp end={1000} suffix="+" />
-                </h3>
-                <p className="text-gray-500 text-sm">Projects Done</p>
-              </div>
-              <div className="hover-scale cursor-default">
-                <h3 className="text-2xl md:text-3xl font-bold gradient-text">
-                  <CountUp end={98} suffix="%" />
-                </h3>
-                <p className="text-gray-500 text-sm">Success Rate</p>
-              </div>
             </div>
           </div>
           
@@ -85,41 +68,6 @@ const Hero = () => {
                 className="object-cover rounded-2xl shadow-2xl hover-lift transition-all duration-500"
                 priority
               />
-              
-              {/* Floating Cards */}
-              <div className="absolute -left-4 top-1/4 glass-card p-4 rounded-xl hidden md:block animate-float hover-glow">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
-                    <ChartIcon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Growth Rate</p>
-                    <p className="font-bold text-gray-800">+127%</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="absolute -right-4 bottom-1/4 glass-card p-4 rounded-xl hidden md:block animate-float-reverse hover-glow">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
-                    <StarIcon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Rating</p>
-                    <p className="font-bold text-gray-800">4.9/5.0</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* New floating element */}
-              <div className="absolute left-1/2 -bottom-6 transform -translate-x-1/2 glass-card px-6 py-3 rounded-full hidden md:flex items-center gap-3 animate-fade-in-up delay-500">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#4f46e5] to-[#06b6d4] flex items-center justify-center text-white text-xs font-bold">J</div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white text-xs font-bold">M</div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-xs font-bold">S</div>
-                </div>
-                <p className="text-sm text-gray-600"><span className="font-semibold text-gray-800">2,847</span> businesses trust us</p>
-              </div>
             </div>
           </div>
         </div>

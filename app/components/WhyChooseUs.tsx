@@ -6,7 +6,7 @@ const features = [
   {
     icon: FiAward,
     title: "Industry Expertise",
-    description: "10+ years of experience in digital marketing and brand management",
+    description: "We work like industry experts delivering professional digital marketing and brand management",
   },
   {
     icon: FiUsers,
@@ -57,12 +57,6 @@ const WhyChooseUs = () => {
               />
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#4f46e5]/20 to-transparent"></div>
-            </div>
-            {/* Experience Badge */}
-            <div className="absolute -bottom-6 -right-6 glass-card text-gray-800 p-6 rounded-2xl hidden md:block animate-float hover-glow">
-              <SparklesIcon className="absolute -top-3 -right-3 w-8 h-8" />
-              <p className="text-4xl font-bold gradient-text">10+</p>
-              <p className="text-sm text-gray-600">Years Experience</p>
             </div>
             {/* Decorative ring */}
             <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-dashed border-[#4f46e5]/30 rounded-full animate-spin-slow hidden md:block"></div>

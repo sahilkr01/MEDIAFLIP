@@ -66,13 +66,6 @@ const services = [
   },
 ];
 
-const stats = [
-  { value: "500+", label: "Happy Clients" },
-  { value: "1000+", label: "Projects Completed" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "24/7", label: "Support Available" },
-];
-
 const process = [
   {
     step: "01",
@@ -150,33 +143,6 @@ export default function ServicesPage() {
                   >
                     Learn More <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="py-16 bg-gradient-to-r from-[#4f46e5] to-[#7c3aed] relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
-          </div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index} 
-                  className="text-center animate-fade-in-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-white/80 font-medium">
-                    {stat.label}
-                  </div>
                 </div>
               ))}
             </div>
@@ -265,26 +231,7 @@ export default function ServicesPage() {
 
               <div className="relative animate-fade-in-up delay-200">
                 <div className="glass-card rounded-2xl p-8">
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl">
-                      <div className="text-3xl font-bold text-[#4f46e5] mb-1">10+</div>
-                      <div className="text-gray-600 text-sm">Years Experience</div>
-                    </div>
-                    <div className="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl">
-                      <div className="text-3xl font-bold text-[#7c3aed] mb-1">50+</div>
-                      <div className="text-gray-600 text-sm">Expert Team</div>
-                    </div>
-                    <div className="text-center p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl">
-                      <div className="text-3xl font-bold text-emerald-500 mb-1">500+</div>
-                      <div className="text-gray-600 text-sm">Clients Served</div>
-                    </div>
-                    <div className="text-center p-4 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl">
-                      <div className="text-3xl font-bold text-orange-500 mb-1">95%</div>
-                      <div className="text-gray-600 text-sm">Retention Rate</div>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-6 p-4 bg-gradient-to-r from-[#4f46e5]/5 to-[#7c3aed]/5 rounded-xl border border-[#4f46e5]/10">
+                  <div className="p-4 bg-gradient-to-r from-[#4f46e5]/5 to-[#7c3aed]/5 rounded-xl border border-[#4f46e5]/10">
                     <p className="text-gray-700 italic text-center">
                       &quot;MediaFlip transformed our digital presence completely. Their team&apos;s expertise and dedication are unmatched.&quot;
                     </p>

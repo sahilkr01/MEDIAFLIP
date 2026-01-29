@@ -1,17 +1,35 @@
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageHeader from "../components/PageHeader";
 import TeamMember from "../components/TeamMember";
 import CTA from "../components/CTA";
 import WhatsAppButton from "../components/WhatsAppButton";
-import { FiCheck, FiTarget, FiEye, FiHeart } from "react-icons/fi";
+import { FiCheck, FiTarget, FiEye, FiHeart, FiArrowRight, FiTrendingUp, FiUsers, FiStar } from "react-icons/fi";
 
-const stats = [
-  { value: "10+", label: "Years Experience" },
-  { value: "500+", label: "Happy Clients" },
-  { value: "1000+", label: "Projects Completed" },
-  { value: "50+", label: "Team Members" },
+const caseStudies = [
+  {
+    slug: "ecommerce-brand-growth",
+    title: "E-commerce Brand Growth",
+    client: "Fashion Retailer",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+    description: "Transformed a struggling e-commerce store into a thriving online business through strategic digital marketing.",
+  },
+  {
+    slug: "local-business-domination",
+    title: "Local Business Domination",
+    client: "Restaurant Chain",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
+    description: "Helped a local restaurant chain dominate local search and build a stellar online reputation.",
+  },
+  {
+    slug: "b2b-lead-generation",
+    title: "B2B Lead Generation",
+    client: "SaaS Company",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+    description: "Developed a comprehensive B2B marketing strategy that tripled qualified leads while reducing costs.",
+  },
 ];
 
 const values = [
@@ -91,10 +109,6 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block">
-                  <p className="text-4xl font-bold gradient-text">2015</p>
-                  <p className="text-gray-500">Founded</p>
-                </div>
               </div>
 
               <div className="space-y-6">
@@ -105,7 +119,7 @@ export default function AboutPage() {
                   From Humble Beginnings to <span className="gradient-text">Industry Leader</span>
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Founded in 2015, Mediaflip started as a small team of passionate digital marketers with a vision to help local businesses thrive in the digital age. What began as a three-person operation has grown into a full-service digital marketing agency serving clients across the globe.
+                  Mediaflip started as a small team of passionate digital marketers with a vision to help local businesses thrive in the digital age. What began as a three-person operation has grown into a full-service digital marketing agency serving clients across the globe.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
                   Over the years, we&apos;ve helped hundreds of businesses transform their online presence, build stronger reputations, and achieve sustainable growth. Our success is built on our commitment to innovation, transparency, and delivering real results for our clients.
@@ -125,14 +139,46 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-12 md:py-16 bg-gradient-to-r from-[#4f46e5] to-[#06b6d4]">
+        {/* Case Studies Section */}
+        <section className="section-padding bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <p className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.value}</p>
-                  <p className="text-white/80">{stat.label}</p>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <span className="inline-block px-4 py-2 bg-purple-100 rounded-full text-[#4f46e5] font-medium text-sm mb-4">
+                Case Studies
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Our <span className="gradient-text">Success Stories</span>
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Real results from real clients. See how we&apos;ve helped businesses like yours achieve remarkable growth.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {caseStudies.map((study, index) => (
+                <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={study.image}
+                      alt={study.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4">
+                      <p className="text-white/80 text-sm">{study.client}</p>
+                      <h3 className="text-white font-bold text-lg">{study.title}</h3>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-gray-600 mb-4">{study.description}</p>
+                    <Link 
+                      href={`/case-studies/${study.slug}`}
+                      className="inline-flex items-center gap-2 text-[#4f46e5] font-semibold hover:gap-3 transition-all duration-300"
+                    >
+                      View Case Study <FiArrowRight />
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>

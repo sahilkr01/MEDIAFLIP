@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: FiPhone,
     title: "Call Us",
-    details: ["+1 (234) 567-890", "+1 (234) 567-891"],
+    details: ["+91 9117666123"],
   },
   {
     icon: FiMail,
@@ -82,19 +82,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Map Section */}
-        <section className="bg-gray-100">
-          <div className="container mx-auto px-4 py-8">
-            <div className="bg-gray-300 rounded-2xl overflow-hidden h-[400px] flex items-center justify-center">
-              <div className="text-center">
-                <FiMapPin className="text-gray-500 mx-auto mb-4" size={48} />
-                <p className="text-gray-600 text-lg">Interactive Map</p>
-                <p className="text-gray-500 text-sm">123 Business Avenue, New York, NY 10001</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="section-padding bg-gradient-to-r from-[#4f46e5] to-[#06b6d4]">
           <div className="container mx-auto px-4">
@@ -106,11 +93,11 @@ export default function ContactPage() {
                 Schedule a free 30-minute consultation to discuss your business goals and how we can help you achieve them.
               </p>
               <a
-                href="tel:+1234567890"
+                href="tel:+919117666123"
                 className="inline-flex items-center gap-2 bg-white text-[#4f46e5] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
               >
                 <FiPhone />
-                Call Now: +1 (234) 567-890
+                Call Now: +91 9117666123
               </a>
             </div>
           </div>

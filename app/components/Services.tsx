@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FiMapPin, FiStar, FiShare2, FiCalendar, FiTrendingUp, FiRadio, FiMic } from "react-icons/fi";
+import { FiMapPin, FiStar, FiShare2, FiCalendar, FiTrendingUp, FiRadio, FiMic, FiUsers } from "react-icons/fi";
 import { GridPattern, TargetIcon } from "./SVGDecorations";
 
 const services = [
@@ -9,6 +9,7 @@ const services = [
     description: "Optimize your Google My Business profile to increase local visibility and attract more customers to your business.",
     color: "from-blue-500 to-blue-600",
     link: "/services/gmb-management",
+    includes: ["Profile Optimization", "Photo & Post Updates", "Review Management", "Insights & Analytics"],
   },
   {
     icon: FiStar,
@@ -16,6 +17,7 @@ const services = [
     description: "Build and maintain a positive online reputation through strategic review management and brand monitoring.",
     color: "from-yellow-500 to-orange-500",
     link: "/services/reputation-management",
+    includes: ["Review Monitoring", "Response Management", "Brand Sentiment Analysis", "Crisis Handling"],
   },
   {
     icon: FiShare2,
@@ -23,6 +25,7 @@ const services = [
     description: "Engage your audience with compelling content and strategic social media campaigns across all platforms.",
     color: "from-pink-500 to-rose-500",
     link: "/services/social-media-management",
+    includes: ["Content Creation", "Scheduling & Posting", "Community Management", "Performance Reports"],
   },
   {
     icon: FiCalendar,
@@ -30,6 +33,7 @@ const services = [
     description: "Plan and execute memorable events that create lasting impressions and drive brand awareness.",
     color: "from-green-500 to-emerald-500",
     link: "/services/event-management",
+    includes: ["Event Planning", "Vendor Coordination", "On-site Management", "Post-event Analysis"],
   },
   {
     icon: FiTrendingUp,
@@ -37,6 +41,7 @@ const services = [
     description: "Drive growth with data-driven digital marketing strategies including SEO, PPC, and content marketing.",
     color: "from-purple-500 to-indigo-500",
     link: "/services/digital-marketing",
+    includes: ["SEO Optimization", "PPC Campaigns", "Content Marketing", "Conversion Tracking"],
   },
   {
     icon: FiRadio,
@@ -44,6 +49,7 @@ const services = [
     description: "Reach your local audience with targeted advertising campaigns that drive foot traffic and sales.",
     color: "from-cyan-500 to-teal-500",
     link: "/services/local-advertisement",
+    includes: ["Geo-targeted Ads", "Local SEO", "Flyer & Banner Design", "Radio & Print Ads"],
   },
   {
     icon: FiMic,
@@ -51,6 +57,15 @@ const services = [
     description: "Shape public perception with strategic PR campaigns, media relations, and crisis management.",
     color: "from-red-500 to-pink-500",
     link: "/services/pr-management",
+    includes: ["Press Releases", "Media Outreach", "Brand Storytelling", "Crisis Management"],
+  },
+  {
+    icon: FiUsers,
+    title: "Influencer & Promotion Marketing",
+    description: "Leverage the power of influencers and strategic promotions to amplify your brand reach and engagement.",
+    color: "from-violet-500 to-fuchsia-500",
+    link: "/services/influencer-marketing",
+    includes: ["Influencer Partnerships", "Campaign Strategy", "Content Collaboration", "ROI Tracking"],
   },
 ];
 
@@ -92,7 +107,21 @@ const Services = () => {
                 <service.icon className="text-white" size={24} />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-800 group-hover:text-[#4f46e5] transition-colors">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{service.description}</p>
+              <p className="text-gray-600 leading-relaxed text-sm mb-4">{service.description}</p>
+              
+              {/* What's Included */}
+              <div className="border-t border-gray-200 pt-4 mt-auto">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">What&apos;s Included:</p>
+                <ul className="space-y-1.5">
+                  {service.includes.map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-xs text-gray-600">
+                      <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.color}`}></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
               <div className="mt-4 flex items-center text-[#4f46e5] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                 Learn more →
               </div>
